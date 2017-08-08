@@ -1,6 +1,7 @@
 # Resolver
 
-Testing DNS with a clean cache resolver.
+Testing DNS with a clean cache resolver. More info at
+https://www.shore.co.il/blog/resolver/.
 
 ## Usage
 
