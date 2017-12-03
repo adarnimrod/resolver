@@ -1,5 +1,5 @@
 #!/bin/sh
 set -eu
-service unbound start
+echo "net = { '127.0.0.1', '::1'}" | nohup kresd -f1 &
 echo 'nameserver 127.0.0.1' > /etc/resolv.conf
 eval "exec $@"

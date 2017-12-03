@@ -1,9 +1,13 @@
-FROM debian:stretch-slim
-ENV DEBIAN_FRONTEND noninteractive
-RUN apt-get update && \
-    apt-get install -y unbound unbound-host dnsutils dma bsd-mailx && \
-    rm -rf /tmp/* /var/tmp/* /var/lib/apt/lists/* /var/cache/apt/archives/* &&
-    unbound-checkconf
-COPY entrypoint.sh /entrypoint.sh
-ENTRYPOINT ["/entrypoint.sh"]
-CMD ["/bin/bash", "--login"]
+FROM cznic/knot-resolver
+RUN echo '@testing http://dl-cdn.alpinelinux.org/alpine/edge/testing' >> /etc/apk/repositories && \
+    apk add --update \
+        dma@testing \
+        iproute2 \
+        knot-utils \
+        mailx \
+        mtr \
+    && \
+    rm -rf /var/cache/apk/* /tmp/* /var/tmp/*
+COPY entrypoint /entrypoint
+ENTRYPOINT [ "/entrypoint" ]
+CMD [ "bash", "--login" ]
