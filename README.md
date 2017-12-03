@@ -5,5 +5,4 @@ https://www.shore.co.il/blog/resolver/.
 
 ## Usage
 
-    docker pull adarnimrod/resolver
     docker run -it adarnimrod/resolver
