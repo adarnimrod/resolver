@@ -5,4 +5,4 @@ https://www.shore.co.il/blog/resolver/.
 
 ## Usage
 
-    docker run -it adarnimrod/resolver
+    docker run --rm -it adarnimrod/resolver
