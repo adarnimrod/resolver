@@ -1,5 +1,5 @@
 #!/bin/sh
-set -eu
-echo "net = { '127.0.0.1', '::1'}" | nohup kresd -f1 &
+set -eux
+kresd --addr '127.0.0.1' --noninteractive &
 echo 'nameserver 127.0.0.1' > /etc/resolv.conf
-eval "exec $@"
+eval "exec gosu nobody:nobody $@"
