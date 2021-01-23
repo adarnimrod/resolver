@@ -1,4 +1,5 @@
-FROM alpine:latest
+FROM alpine:3.13
+# hadolint ignore=DL3018
 RUN echo '@testing http://dl-cdn.alpinelinux.org/alpine/edge/testing' >> /etc/apk/repositories && \
     echo '@community http://dl-cdn.alpinelinux.org/alpine/edge/community' >> /etc/apk/repositories && \
     apk add --update --no-cache \

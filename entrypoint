@@ -2,4 +2,4 @@
 set -eux
 kresd --addr '127.0.0.1' --noninteractive &
 echo 'nameserver 127.0.0.1' > /etc/resolv.conf
-eval "exec gosu nobody:nobody $@"
+eval exec gosu nobody:nobody "$@"
