@@ -12,10 +12,10 @@ stages:
   - build
   - deploy
 
-build:
+docker-build:
   extends: .docker-build-shore
   tags: [ns4.shore.co.il]
 
-push:
+docker-push:
   extends: .docker-push
   tags: [ns4.shore.co.il]
